@@ -27,6 +27,12 @@ public class User {
     @Column
     private String nickname;
 
+    @Column
+    private String nickname2;
+
+    @Column
+    private String nickname3;
+
     public User(String username, String password, String nickname){
         this.username = username;
         this.password = password;
