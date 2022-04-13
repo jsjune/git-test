@@ -5,30 +5,22 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@NoArgsConstructor
 @Getter
 @Entity
-@NoArgsConstructor
-public class Post {
-
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Comment {
     @Id
-    private Long postid;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long commentid;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "POST_ID")
+    private Post board;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "USER_ID")
     private User user;
 
     @Column(nullable = false)
-    private String title;
-
-
-    @Column(nullable = false)
     private String content;
-
-    @Column(nullable = false)
-    private String imageSrc;
-
-    @Column(nullable = false)
-    private int star;
-
 }
