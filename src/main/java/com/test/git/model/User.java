@@ -21,5 +21,16 @@ public class User {
 
 
 
+    @Column
+    private String nickname;
+
+    @Column
+    private String nickname2;
+
+    @Column
+    private String nickname3;
+
+
+
 
 }
